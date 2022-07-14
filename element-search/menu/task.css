@@ -20,7 +20,7 @@ body {
 }
 
 .menu__link:hover {
-  color: whitesmoke;
+  color: rgb(245, 245, 245);
 }
 
 .menu__item {
