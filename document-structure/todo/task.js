@@ -1,40 +1,27 @@
-const taskRemove = document.getElementsByClassName('task__remove')
 const button = document.querySelector('button')
-const tasksList = document.querySelector('tasks__list')
+const tasksList = document.querySelector('.tasks__list')
 const input = document.querySelector('input')
-const task = document.getElementsByClassName('task')
-let log = console.log
-
-input.oninput 
-input.addEventListener('keypress', enterMessage);
-
-function enterMessage(event) {
-      if(event.key == 'Enter'){
-        return input.value
-    }
-}
+const tasks = document.querySelector('.tasks')
 
 button.onclick = (() => {
-    if(input.value == ''){
-        alert('Сообщение не может быть пустое')
+    if(input.value.trim() == ""){
+        input.value = null
         return
       } 
-    tasks__list.innerHTML +=
-        ` <div class="task">
-            <div class="task__title">
-                ${input.value}
-                </div>
-                <a href="#" class="task__remove">&times;</a>
-                </div>`
-    input.value = ''
-    taskRemoveClick()     
+    let addDivClassTask = `
+    <div class="task">
+        <div class="task__title">${input.value}</div>
+        <a href="#" class="task__remove">&times;</a>
+    </div>`
+
+   tasksList.insertAdjacentHTML('afterBegin', addDivClassTask)
+    input.value = null
+    //event.preventDefault() // код работает и с event.preventDefault() и без него.
+    // если можно прокоментируйте пожалуйста это
 })
 
-function taskRemoveClick() {
-    Array.from(task).forEach((item, index) =>{
-        taskRemove[index].onclick = (() => {
-            item.remove()
-        })
-        log(item)
-    })
-}
+tasks.addEventListener('click', function (event) {
+    const target = event.target.closest('.task');
+    if (!target) return;
+    target.remove()
+});
