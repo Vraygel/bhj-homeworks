@@ -11,7 +11,7 @@ productQuantityСontrolInc.forEach((item, index) =>{
     
     item.addEventListener('click', total) 
 
-    function total(event) {
+    function total() {
         let productQuantityValue = document.querySelectorAll('.product__quantity-value')
         let num = +(productQuantityValue[index].textContent) + 1
 
@@ -23,11 +23,11 @@ productQuantityСontrolDec.forEach((item, index) =>{
         
     item.addEventListener('click', total) 
     
-    function total(event) {
+    function total() {
         let productQuantityValue = document.querySelectorAll('.product__quantity-value')
         let num = +(productQuantityValue[index].textContent)
 
-        num == 1? alert("Колчество товара не может быть ноль") : num -=1
+        num == 1? num : num -=1
         productQuantityValue[index].textContent  = num  
     }
 })
