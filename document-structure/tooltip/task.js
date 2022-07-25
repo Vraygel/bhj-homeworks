@@ -2,10 +2,10 @@ const hasTooltip = document.querySelectorAll('.has-tooltip')
 let tooltipActive = document.getElementsByClassName('tooltip_active')
 
 for (const iterator of hasTooltip) {
-    iterator.addEventListener('click', func)    
+    iterator.addEventListener('click', funcClickHasTooltip)    
 }
 
-function func(event) {
+function funcClickHasTooltip(event) {
         let leftSearch = event.target.getBoundingClientRect().left
         let topSearch = event.target.getBoundingClientRect().top + 17
 
