@@ -8,11 +8,10 @@ if(editTextGet){
 
 let editTextSet = ''
 editor.oninput = () => {
-    editTextSet = editor.value
-    log(editTextSet)
-    localStorage.setItem('text', editTextSet)
+    editTextSet = editor.value;
+    localStorage.setItem('text', editTextSet);
 }
 
 button.onclick = () => {
-    editor.value = null
+    editor.value = null;
 }
